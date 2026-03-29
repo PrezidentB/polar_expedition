@@ -15,6 +15,7 @@ RUN echo 'echo ""' >> /home/player/.bashrc && \
     echo 'echo ""' >> /home/player/.bashrc && \
     echo 'echo "Vous êtes dans votre dossier de départ."' >> /home/player/.bashrc && \
     echo 'echo "Tapez  ls  pour voir ce qui vous entoure."' >> /home/player/.bashrc && \
+    echo 'echo "Tapez  cat  NOM_FICHIER  pour voir ce que ce dernier contient."' >> /home/player/.bashrc && \
     echo 'echo ""' >> /home/player/.bashrc && \
     echo 'cd /home/player' >> /home/player/.bashrc
 
@@ -22,4 +23,4 @@ USER player
 # WORKDIR /home/player
 
 EXPOSE 7681
-CMD ["ttyd", "-W", "-p", "7681", "/bin/bash"]
+CMD ["ttyd", "--once", "-W", "-p", "7681", "/bin/bash"]

@@ -27,7 +27,7 @@ Bonne chance, matelot.
 EOF
 
 # --- Bibliothèque : aide aux commandes ---
-cat > /home/player/manuel_du_matelot.txt << 'EOF'
+cat > /home/player/LISEZ_MOI.txt << 'EOF'
 === MANUEL DU MATELOT NUMÉRIQUE ===
 
 Pour naviguer dans ce navire virtuel, vous aurez besoin de :

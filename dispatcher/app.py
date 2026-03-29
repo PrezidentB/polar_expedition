@@ -1,11 +1,11 @@
-from flask import Flask, redirect, request
+from flask import Flask, redirect, request, send_from_directory, make_response
 import docker
 import random
 import string
 import threading
 import time
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="static")
 client = docker.from_env()
 
 def random_id():
@@ -17,8 +17,8 @@ def find_free_port():
         s.bind(('', 0))
         return s.getsockname()[1]
 
-def cleanup_container(name, delay=3600):
-    """Supprime le conteneur après 1h (durée max d'une session)"""
+def cleanup_container(name, delay=1200):
+    """Supprime le conteneur après 20min (durée max d'une session)"""
     def _delete():
         time.sleep(delay)
         try:
@@ -57,12 +57,9 @@ def dispatch(num):
 
 @app.route("/")
 def index():
-    return """
-    <h2>🧊 Expédition Polaire</h2>
-    <ul>
-      <li><a href="/challenge/1">Challenge 1 — Le Journal du Capitaine</a></li>
-      <li><a href="/challenge/2">Challenge 2 — Les Secrets de la Glace</a></li>
-    </ul>
-    """
+    response = make_response(send_from_directory("static", "index.html"))
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    return response
+
 
 app.run(host="0.0.0.0", port=5000)
