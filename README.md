@@ -8,62 +8,50 @@ destinés à des collégiens/lycéens débutants sur Linux.
 ## 📦 Structure
 
 ```
-polar-escape/
-├── challenge1/     # "Le Journal du Capitaine"
+.
+├── LICENSE
+├── README.md
+├── challenge1
 │   ├── Dockerfile
 │   └── setup.sh
-├── challenge2/     # "Les Secrets de la Glace"
+├── challenge2
 │   ├── Dockerfile
 │   └── setup.sh
-└── README.md
+├── dispatcher
+│   ├── Dockerfile
+│   └── app.py
+└── docker-compose.yml
 ```
 
 ---
 
 ## 🚀 Lancement rapide
 
-### Challenge 1
-
-```bash
-cd challenge1
-docker build -t polar-challenge1 .
-docker run -it polar-challenge1
 ```
-
-### Challenge 2
-
-```bash
-cd challenge2
-docker build -t polar-challenge2 .
-docker run -it polar-challenge2
+docker compose up -d
 ```
 
 ---
-
-## 🎯 Objectifs pédagogiques
+## Objectifs
 
 ### Challenge 1 — "Le Journal du Capitaine"
 **Niveau** : Débutant absolu  
-**Durée estimée** : 20–35 min
 
 | Commande | Usage appris |
 |----------|-------------|
 | `ls`     | Lister le contenu d'un dossier |
 | `cd`     | Se déplacer dans l'arborescence |
 | `cat`    | Lire un fichier texte |
-| `pwd`    | Savoir où l'on se trouve |
 
-**Scénario** : Le joueur explore le brise-glace *Aurore Boréale*
+**Scénario** : Le joueur explore le brise-glace 
 et doit retrouver le journal du Capitaine Morel, qui contient
 les coordonnées de l'expédition disparue EREBUS.
 
 **FLAG** : `EREBUS_78N_TROUVE`
 
 ---
-
 ### Challenge 2 — "Les Secrets de la Glace"
 **Niveau** : Débutant+ (après le challenge 1)  
-**Durée estimée** : 30–50 min
 
 | Commande | Usage appris |
 |----------|-------------|
@@ -80,16 +68,7 @@ caché dans les variables d'environnement système.
 
 ---
 
-## 💡 Conseils pour l'animation
-
-- **Imprimer l'énoncé** sur papier pour chaque élève (cf. section ci-dessous)
-- Laisser les élèves chercher avant d'aider : l'exploration fait partie de l'apprentissage
-- Le fichier `valider_mission.sh` permet une validation autonome : `bash valider_mission.sh`
-- Pour les plus rapides : inviter à explorer toutes les pistes narratives (fausses pistes incluses)
-
----
-
-## 📋 Énoncés élèves
+## Énoncés
 
 ### Énoncé — Challenge 1
 
@@ -124,7 +103,8 @@ caché dans les variables d'environnement système.
 
 ---
 
-## 🔧 Identifiants de connexion
+## Identifiants de connexion 
+*on ne devrait pas en avoir besoin*
 
 | Paramètre | Valeur |
 |-----------|--------|
