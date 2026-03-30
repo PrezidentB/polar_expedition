@@ -13,15 +13,15 @@ ENV CODE_LABO="GLACE_PROFONDE_340"
 ENV HINT_EREBUS="Les secrets sont parfois invisibles à première vue"
 
 # Message de bienvenue au login
-RUN echo 'echo ""' >> /home/player/.bashrc && \
-    echo 'echo "╔══════════════════════════════════════════╗"' >> /home/player/.bashrc && \
-    echo 'echo "║   EXPÉDITION POLAIRE — Challenge 2       ║"' >> /home/player/.bashrc && \
-    echo 'echo "║   Les Secrets de la Glace                ║"' >> /home/player/.bashrc && \
-    echo 'echo "╚══════════════════════════════════════════╝"' >> /home/player/.bashrc && \
+RUN echo 'CYAN="\e[36m"; RED="\e[1;31m"; BOLD="\e[1;37m"; RESET="\e[0m"' >> /home/player/.bashrc && \
+    echo 'echo -e "${CYAN}╔══════════════════════════════════════════╗${RESET}"' >> /home/player/.bashrc && \
+    echo 'echo -e "${CYAN}║${RESET}   ${BOLD}EXPÉDITION POLAIRE — Challenge 2${RESET}       ${CYAN}║${RESET}"' >> /home/player/.bashrc && \
+    echo 'echo -e "${CYAN}║${RESET}   Les Secrets de la Glace                ${CYAN}║${RESET}"' >> /home/player/.bashrc && \
+    echo 'echo -e "${CYAN}╚══════════════════════════════════════════╝${RESET}"' >> /home/player/.bashrc && \
     echo 'echo ""' >> /home/player/.bashrc && \
-    echo 'echo "Vous pénétrez dans la base abandonnée EREBUS."' >> /home/player/.bashrc && \
-    echo 'echo "Lisez le fichier MISSION.txt pour commencer."' >> /home/player/.bashrc && \
-    echo 'echo "Tapez :  cat MISSION.txt"' >> /home/player/.bashrc && \
+    echo 'echo -e "${BOLD}Vous pénétrez dans la base abandonnée EREBUS.${RESET}"' >> /home/player/.bashrc && \
+    echo 'echo -e "Lisez le fichier ${RED}MISSION.txt${RESET} pour commencer."' >> /home/player/.bashrc && \
+    echo 'echo -e "Tapez :  ${RED}cat MISSION.txt${RESET}"' >> /home/player/.bashrc && \
     echo 'echo ""' >> /home/player/.bashrc && \
     echo 'cd /home/player' >> /home/player/.bashrc
 
@@ -29,4 +29,4 @@ USER player
 # WORKDIR /home/player
 
 EXPOSE 7681
-CMD ["ttyd", "-W", "-p", "7681", "/bin/bash"]
+CMD ["ttyd", "--once", "-W", "-p", "7681", "/bin/bash"]

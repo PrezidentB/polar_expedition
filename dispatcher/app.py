@@ -3,10 +3,10 @@ import docker
 import random
 import string
 import threading
-import time
 
 app = Flask(__name__, static_folder="static")
 client = docker.from_env()
+app.logger.setLevel("INFO")
 
 def random_id():
     return ''.join(random.choices(string.ascii_lowercase + string.digits, k=8))
@@ -17,17 +17,18 @@ def find_free_port():
         s.bind(('', 0))
         return s.getsockname()[1]
 
-def cleanup_container(name, delay=1200):
-    """Supprime le conteneur après 20min (durée max d'une session)"""
-    def _delete():
-        time.sleep(delay)
+def watch_container(name):
+    """Supprime le conteneur dès qu'il s'arrête"""
+    def _watch():
         try:
             c = client.containers.get(name)
+            c.wait()  # bloque jusqu'à l'arrêt du conteneur
             c.remove(force=True)
-            print(f"[cleanup] {name} supprimé")
-        except:
-            pass
-    threading.Thread(target=_delete, daemon=True).start()
+            app.logger.info(f"[watch] {name} supprimé après déconnexion")
+        except Exception as e:
+            app.logger.info(f"[watch] erreur sur {name} : already removed from option \"--once\" on ttyd.")
+    threading.Thread(target=_watch, daemon=True).start()
+
 
 @app.route("/challenge/<int:num>")
 def dispatch(num):
@@ -35,7 +36,8 @@ def dispatch(num):
         return "Challenge inexistant", 404
 
     image = f"polar-challenge{num}"
-    name = f"player-c{num}-{random_id()}"
+    random_num = random_id()
+    name = f"player-c{num}-{random_num}"
     port = find_free_port()
 
     try:
@@ -43,16 +45,18 @@ def dispatch(num):
             image,
             detach=True,
             name=name,
+            hostname=f"arctique-{num}",
             ports={"7681/tcp": port},
             auto_remove=True,
         )
-        cleanup_container(name)
-        print(f"[dispatch] {name} → port {port}")
+        watch_container(name)
+        app.logger.info(f"[dispatch] {name} → port {port}")
 
         host = request.host.split(":")[0]
         return redirect(f"http://{host}:{port}", code=302)
 
     except Exception as e:
+        app.logger.error(f"[dispatch] erreur sur {name} : {e}")
         return f"Erreur : {e}", 500
 
 @app.route("/")

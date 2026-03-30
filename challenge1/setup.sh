@@ -5,8 +5,7 @@
 # =============================================================
 
 # --- Structure du brise-glace ---
-mkdir -p /home/player/brise_glace/{pont_superieur,salle_des_machines,cabines/{capitaine,docteur,ingenieure},cale/{provisions,equipement}}
-mkdir -p /home/player/brise_glace/bibliotheque
+mkdir -p /home/player/brise_glace/{pont_superieur,salle_des_machines,cabines/{capitaine,docteur,ingenieure},cale/provisions}
 
 # --- Pont supérieur : message de bienvenue ---
 cat > /home/player/brise_glace/pont_superieur/message_accueil.txt << 'EOF'
@@ -57,8 +56,8 @@ Date : 14 janvier
 Les moteurs fonctionnent à 80% de capacité.
 La glace est plus épaisse que prévu à cette latitude.
 
-Note de l'ingénieure Chen : "J'ai laissé quelque chose
-dans ma cabine qui pourrait vous intéresser."
+Note de l'ingénieure Chen : "Il y a des anomalies dans les relevés de température.
+Peut-être que la glace cache quelque chose d'inhabituel ?"
 EOF
 
 # --- Cabine de l'ingénieure : indice intermédiaire ---
@@ -96,16 +95,6 @@ Note : Des traces de pas ont été trouvées près de l'équipement
 la nuit du 13 janvier. Enquête en cours.
 EOF
 
-cat > /home/player/brise_glace/cale/equipement/materiel_exploration.txt << 'EOF'
-Matériel d'exploration arctique
-
-- Combinaisons thermiques : 12
-- Traîneaux motorisés : 3
-- Balises GPS : 8 (dont 1 manquante — voir rapport du 13 jan.)
-
-La balise manquante portait le numéro de série : ARC-7749
-EOF
-
 # --- Cabine du Capitaine : objectif final ---
 cat > /home/player/brise_glace/cabines/capitaine/journal_morel.txt << 'EOF'
 === JOURNAL DU CAPITAINE MOREL ===
@@ -123,7 +112,7 @@ que seul un matelot courageux saura trouver.
 Cherchez le fichier de mission dans la cale, dossier équipement.
 Le mot de passe du prochain niveau est :
 
-    FLAG : EREBUS_78N_TROUVE
+    FLAG : BZHDLS{EREBUS_78N_TROUVE}
 
 Capitaine Henri Morel
 EOF

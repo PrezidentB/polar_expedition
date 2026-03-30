@@ -7,15 +7,17 @@ COPY setup.sh /tmp/setup.sh
 RUN chmod +x /tmp/setup.sh && bash /tmp/setup.sh
 
 # Message de bienvenue au login
-RUN echo 'echo ""' >> /home/player/.bashrc && \
-    echo 'echo "╔══════════════════════════════════════════╗"' >> /home/player/.bashrc && \
-    echo 'echo "║   EXPÉDITION POLAIRE — Challenge 1       ║"' >> /home/player/.bashrc && \
-    echo 'echo "║   Le Journal du Capitaine                ║"' >> /home/player/.bashrc && \
-    echo 'echo "╚══════════════════════════════════════════╝"' >> /home/player/.bashrc && \
+RUN echo 'CYAN="\e[36m"; RED="\e[1;31m"; BOLD="\e[1;37m"; RESET="\e[0m"' >> /home/player/.bashrc && \
     echo 'echo ""' >> /home/player/.bashrc && \
-    echo 'echo "Vous êtes dans votre dossier de départ."' >> /home/player/.bashrc && \
-    echo 'echo "Tapez  ls  pour voir ce qui vous entoure."' >> /home/player/.bashrc && \
-    echo 'echo "Tapez  cat  NOM_FICHIER  pour voir ce que ce dernier contient."' >> /home/player/.bashrc && \
+    echo 'echo -e "${CYAN}╔══════════════════════════════════════════╗${RESET}"' >> /home/player/.bashrc && \
+    echo 'echo -e "${CYAN}║${RESET}   ${BOLD}EXPÉDITION POLAIRE — Challenge 1${RESET}       ${CYAN}║${RESET}"' >> /home/player/.bashrc && \
+    echo 'echo -e "${CYAN}║${RESET}   Le Journal du Capitaine                ${CYAN}║${RESET}"' >> /home/player/.bashrc && \
+    echo 'echo -e "${CYAN}╚══════════════════════════════════════════╝${RESET}"' >> /home/player/.bashrc && \
+    echo 'echo ""' >> /home/player/.bashrc && \
+    echo 'echo -e "Vous êtes dans votre dossier de départ."' >> /home/player/.bashrc && \
+    echo 'echo -e "Tapez  ${RED}ls${RESET}  pour voir ce qui vous entoure."' >> /home/player/.bashrc && \
+    echo 'echo -e "Tapez  ${RED}cat NOM_FICHIER${RESET}  pour voir ce que ce dernier contient."' >> /home/player/.bashrc && \
+    echo 'echo -e "Vous devriez commencer par lire  ${RED}LISEZ_MOI.txt${RESET}."' >> /home/player/.bashrc && \
     echo 'echo ""' >> /home/player/.bashrc && \
     echo 'cd /home/player' >> /home/player/.bashrc
 
