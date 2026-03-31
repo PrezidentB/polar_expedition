@@ -53,7 +53,7 @@ Aller sur http://localhost/
 et doit retrouver le journal du Capitaine Morel, qui contient
 les coordonnées de l'expédition disparue EREBUS.
 
-**FLAG** : `EREBUS_78N_TROUVE`
+**FLAG** : `BZHDLS{EREBUS_78N_TROUVE}`
 
 ---
 ### Challenge 2 — "Les Secrets de la Glace"
@@ -70,7 +70,7 @@ les coordonnées de l'expédition disparue EREBUS.
 et doit retrouver le code d'accès du laboratoire principal,
 caché dans les variables d'environnement système.
 
-**FLAG** : `GLACE_PROFONDE_340` (valeur de `$CODE_LABO`)
+**FLAG** : `BZHDLS{GLACE_PROFONDE_340}` (valeur de `$CODE_LABO`)
 
 ---
 
@@ -87,8 +87,6 @@ caché dans les variables d'environnement système.
 > Explorez le navire et retrouvez son journal.
 >
 > **Commandes utiles :** `ls`, `cd`, `cat`, `pwd`, `cd ..`
->
-> Une fois le FLAG trouvé, tapez : `bash valider_mission.sh`
 
 ---
 
@@ -104,8 +102,6 @@ caché dans les variables d'environnement système.
 > Et le code du laboratoire est stocké dans les **variables d'environnement**.
 >
 > **Commandes utiles :** `ls -la`, `cat`, `env`, `echo $NOM_VARIABLE`
->
-> Une fois le code trouvé, tapez : `bash valider_mission.sh`
 
 ---
 
