@@ -3,6 +3,10 @@ FROM tsl0922/ttyd:latest
 RUN useradd -m -s /bin/bash player && \
     echo "player:arctique" | chpasswd
 
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    tree \
+    && rm -rf /var/lib/apt/lists/*
+
 COPY setup.sh /tmp/setup.sh
 RUN chmod +x /tmp/setup.sh && bash /tmp/setup.sh
 

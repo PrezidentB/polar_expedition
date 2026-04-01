@@ -4,12 +4,16 @@ FROM tsl0922/ttyd:latest
 RUN useradd -m -s /bin/bash player && \
     echo "player:arctique" | chpasswd
 
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    tree \
+    && rm -rf /var/lib/apt/lists/*
+
 # Copier et exécuter le script de setup
 COPY setup.sh /tmp/setup.sh
 RUN chmod +x /tmp/setup.sh && bash /tmp/setup.sh
 
 # Charger la variable d'environnement pour le joueur
-ENV CODE_LABO="BZHCTF{GLACE_PROFONDE_340}"
+ENV CODE_LABO="BZHCTF{GLACE_PROFONDE}"
 ENV HINT_EREBUS="Les secrets sont parfois invisibles à première vue"
 
 # Message de bienvenue au login

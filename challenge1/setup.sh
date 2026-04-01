@@ -112,7 +112,7 @@ que seul un matelot courageux saura trouver.
 Cherchez le fichier de mission dans la cale, dossier équipement.
 Le mot de passe du prochain niveau est :
 
-    FLAG : BZHDLS{EREBUS_78N_TROUVE}
+    FLAG : BZHDLS{EREBUS_TROUVE}
 
 Capitaine Henri Morel
 EOF

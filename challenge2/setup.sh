@@ -8,7 +8,7 @@
 mkdir -p /home/player/base_erebus/{laboratoire,quartiers/{elena,marcus,inconnu},archives,exterieur}
 
 # --- Message d'introduction ---
-cat > /home/player/MISSION.txt << 'EOF'
+cat > /home/player/LISEZ_MOI.txt << 'EOF'
 
 === MISSION : LES SECRETS DE LA GLACE ===
 
@@ -70,7 +70,7 @@ cacher sur l'ordinateur du laboratoire. On ne sait jamais.
 EOF
 
 # --- Fichier caché dans le quartier d'Elena ---
-cat > /home/player/base_erebus/quartiers/elena/.coordonnees_anomalie.txt << 'EOF'
+cat > /home/player/base_erebus/laboratoire/.coordonnees_anomalie.txt << 'EOF'
 
 DONNÉES CONFIDENTIELLES — Elena Vasquez
 Ne pas diffuser sans autorisation
@@ -160,13 +160,13 @@ Statut : [████████] — Accès restreint
 Niveau de classification : ███████
 Données sensibles : ███████████████
 
-→ Récupérez maintenant le CODE_LABO pour valider votre mission et détruire les données sensibles.
+→ Récupérez le CODE_LABO pour valider votre mission et détruire les données sensibles.
 
 EOF
 
 # --- Variable d'environnement : injectée pour tous les shells ---
-echo 'export CODE_LABO="BZHDLS{GLACE_PROFONDE_340}"' >> /etc/environment
-echo 'export CODE_LABO="BZHDLS{GLACE_PROFONDE_340}"' >> /home/player/.bashrc
+echo 'export CODE_LABO="BZHCTF{GLACE_PROFONDE}"' >> /etc/environment
+echo 'export CODE_LABO="BZHCTF{GLACE_PROFONDE}"' >> /home/player/.bashrc
 echo 'export HINT_EREBUS="Les secrets sont parfois invisibles à première vue"' >> /home/player/.bashrc
 
 echo "[setup] Challenge 2 prêt ✓"
