@@ -32,7 +32,7 @@ def watch_container(name):
 
 @app.route("/challenge/<int:num>")
 def dispatch(num):
-    if num not in [1, 2]:
+    if num not in [1, 2, 3]:
         return "Challenge inexistant", 404
 
     image = f"polar-challenge{num}"
