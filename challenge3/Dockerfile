@@ -2,6 +2,7 @@ FROM tsl0922/ttyd:latest
 
 RUN apt-get update && apt-get install -y \
     bash \
+    tree \
     coreutils \
     findutils \
     && rm -rf /var/lib/apt/lists/*

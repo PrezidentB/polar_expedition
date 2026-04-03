@@ -41,7 +41,7 @@ Il ne reste plus qu'à trouver un moyen de faire supprimer les conteneurs une fo
 ## 🚀 Lancement rapide
 
 ```
-docker compose up -d
+docker compose up --build -d
 ```
 
 Aller sur http://localhost/
