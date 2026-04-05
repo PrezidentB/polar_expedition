@@ -1,5 +1,5 @@
 # Challenge 3 — "Le Terminal Fantôme"
-**Niveau** : Chiant, juste pour montrer aux élèves qu'ils sont bien bien nuls.  
+**Niveau** : Chiant, juste pour montrer aux élèves qu'ils sont bien bien nuls >:).  
 
 | Commande | Usage |
 |----------|-------------|
@@ -34,6 +34,11 @@ player@arctique-3:~$ find / -perm -4000 2>/dev/null
 /usr/bin/su
 /usr/bin/umount
 /usr/local/bin/diagnostic # lui
+```
+
+Plus qu'à afficher le flag :
+```bash
+diagnostic /root/coffre/flag.txt
 ```
 
 **FLAG** : `BZHCTF{EREBUS_COMPROMISED}`
